@@ -21,6 +21,6 @@ def predict_dataframe_wrapper(func: Callable[[Track, List[float]], List[float]])
     def _wrap(self, dataframe: pd.core.frame.DataFrame, featureCol: str = "features", predictCol: str = "labels") -> pd.core.frame.DataFrame:
         features = [dt.to_pydatetime() for idx, dt in dataframe[featureCol].iteritems()]
         predictions = func(self, features)
-        newframe = pd.Series(predictions).rename(predictCol)
-        return pd.concat([dataframe, newframe], axis=1, join_axes=[dataframe.index])
+        newframe = pd.Series(predictions, index=dataframe.index.tolist(), name=predictCol)
+        return pd.concat([dataframe, newframe], axis=1)
     return _wrap
