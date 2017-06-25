@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 #version
 here = os.path.dirname(os.path.abspath(__file__))
-version = next((line.split("=")[1].strip().replace("\"", "") for line in open(os.path.join(here,"pytimetrack","__init__.py")) if line.startswith("__version__ = ")),"0.0.dev0")
+version = next((line.split("=")[1].strip().replace("\"", "") for line in open(os.path.join(here,"pytimetrack","__init__.py")) if line.startswith("__version__ = ")),"0.0.0")
 print(version)
 
 try:
