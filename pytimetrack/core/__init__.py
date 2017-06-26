@@ -1,6 +1,2 @@
-import os
-import sys
-
-path = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(path)
-
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
